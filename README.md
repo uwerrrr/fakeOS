@@ -1,2 +1,4 @@
 # fakeOS
- Create a fake OS interface with on web page
+
+An interactive fake OS interface with on web page.
+Made by Oscar NGUYEN.
