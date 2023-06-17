@@ -43,8 +43,14 @@
 }
 
 .app {
-  padding: 20px;
+  padding: 10px;
   margin: 20px;
+}
+.app:active {
+  background-color: rgb(159, 159, 159);
+}
+.app__img {
+  height: 50px;
 }
 .app__title {
   background-color: white;

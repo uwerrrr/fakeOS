@@ -86,9 +86,15 @@ $menuHeight: 20px;
 }
 
 .app {
-  padding: 20px;
+  padding: 10px;
   margin: 20px;
+
+  &:active {
+    background-color: rgb(159, 159, 159);
+  }
+
   &__img {
+    height: 50px;
   }
   &__title {
     background-color: white;
