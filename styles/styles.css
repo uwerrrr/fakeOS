@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Sysfont";
+  src: url("./fonts/sysfont.woff2") format("woff2"), url("./fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.desktop {
+  font-family: "Sysfont", Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 12px;
+  background-color: rgba(109, 109, 109, 0.383);
+  width: 1024px;
+  height: 768px;
+  margin: 50px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu {
+  background-color: white;
+  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0px 5px;
+  height: 20px;
+}
+.menu__left {
+  display: flex;
+}
+.menu__item {
+  padding: 0px 10px;
+}
+.menu__item--apple-logo:active {
+  background-color: rgba(109, 109, 109, 0.383);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: calc(100% - 20px);
+}
+
+.app {
+  padding: 10px;
+  margin: 20px;
+}
+.app:active {
+  background-color: rgb(159, 159, 159);
+}
+.app__img {
+  height: 50px;
+}
+.app__title {
+  background-color: white;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */

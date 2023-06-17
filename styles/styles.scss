@@ -1,0 +1,105 @@
+@use "./modules/theme.scss";
+
+// font
+@font-face {
+  font-family: "Sysfont";
+  src: url("./fonts/sysfont.woff2") format("woff2"),
+    url("./fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font() {
+  font-family: "Sysfont", Arial, sans-serif;
+  font-size: 16px;
+  // &--bold {
+  // }
+}
+
+@mixin window {
+  border-radius: 12px;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.desktop {
+  @include font();
+
+  @include window();
+
+  background-color: rgba(109, 109, 109, 0.383);
+  width: 1024px;
+  height: 768px;
+  margin: 50px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+$menuHeight: 20px;
+.menu {
+  background-color: white;
+  border-bottom: 2px solid black;
+
+  @include flex($justify: space-between);
+
+  padding: 0px 5px;
+
+  height: $menuHeight;
+  &__left {
+    display: flex;
+  }
+  &__item {
+    padding: 0px 10px;
+
+    &--apple-logo {
+      &:active {
+        background-color: theme.$wallpaper;
+      }
+    }
+  }
+  &__right {
+  }
+  &__clock {
+  }
+}
+
+.content {
+  // @include flex($direction: column,$justify: space-between ,$align: flex-end);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  height: calc(100% - $menuHeight);
+}
+
+.apps-wrapper {
+  &--trash {
+    // margin-top: auto;
+  }
+}
+
+.app {
+  padding: 10px;
+  margin: 20px;
+
+  &:active {
+    background-color: rgb(159, 159, 159);
+  }
+
+  &__img {
+    height: 50px;
+  }
+  &__title {
+    background-color: white;
+    text-align: center;
+  }
+  &--trash {
+  }
+}

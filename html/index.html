@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Macintosh Desktop Replica</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="../styles/styles.css" />
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/9a6d381eb2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <!-- menu bar -->
+      <div class="menu">
+        <div class="menu__left">
+          <div class="menu__item menu__item--apple-logo">
+            <i class="fa-brands fa-apple"></i>
+          </div>
+          <div class="menu__item">File</div>
+          <div class="menu__item">Edit</div>
+          <div class="menu__item">View</div>
+          <div class="menu__item">Help</div>
+        </div>
+        <div class="menu__right">
+          <div id="clock" class="menu__item menu__clock">Clock</div>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div class="content">
+        <!-- app icons -->
+        <div class="apps-wrapper">
+          <!-- app 1 -->
+          <div class="app">
+           
+            <img src="../styles/icons/floppy-disk.png" alt="App 1" class="app__img" />
+            <div class="app__title">App 1</div>
+          </div>
+          <!-- app 2 -->
+          <div class="app">
+            <img src="../styles/icons/floppy-disk.png" alt="App 2" class="app__img" />
+            <div class="app__title">App 2</div>
+          </div>
+        </div>
+        <!-- trash icon -->
+        <div class="apps-wrapper--trash">
+          <div class="app app--trash">
+            <img src="../styles/icons/trash-can.png" alt="trash bin" class="app__img" />
+            <div class="app__title">Trash</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="../scripts/scripts.js"></script>
+  </body>
+</html>
