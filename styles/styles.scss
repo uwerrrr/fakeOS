@@ -16,8 +16,8 @@
   // }
 }
 
-@mixin window {
-  border-radius: 12px;
+@mixin window($radius: 4px) {
+  border-radius: $radius;
 }
 
 @mixin flex($direction: row, $justify: flex-start, $align: stretch) {
@@ -31,7 +31,7 @@
 .desktop {
   @include font();
 
-  @include window();
+  @include window(16px);
 
   background-color: rgba(109, 109, 109, 0.383);
   width: 1024px;
@@ -39,6 +39,17 @@
   margin: 50px auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+.hidden-wrapper {
+  display: none;
+  &--show {
+    display: block;
+  }
+}
+
+//////////////////////////////////////////
+/// menu
+///
 
 $menuHeight: 20px;
 .menu {
@@ -55,11 +66,13 @@ $menuHeight: 20px;
   }
   &__item {
     padding: 0px 10px;
-
+    &:active {
+      background-color: theme.$wallpaper;
+    }
     &--apple-logo {
-      &:active {
-        background-color: theme.$wallpaper;
-      }
+      // &:active {
+      //   background-color: theme.$wallpaper;
+      // }
     }
   }
   &__right {
@@ -67,6 +80,31 @@ $menuHeight: 20px;
   &__clock {
   }
 }
+
+.mac-menu {
+  background-color: white;
+  position: absolute;
+  margin-left: 10px;
+
+  @include window();
+  @include flex($direction: column);
+
+  &__item {
+    margin: 2px;
+    padding: 4px;
+
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      background-color: theme.$wallpaper;
+    }
+  }
+}
+
+////////////////////////////////////////////
+/// content
+///
 
 .content {
   // @include flex($direction: column,$justify: space-between ,$align: flex-end);
@@ -80,6 +118,7 @@ $menuHeight: 20px;
 }
 
 .apps-wrapper {
+  // @include flex(column, center, center);
   &--trash {
     // margin-top: auto;
   }
@@ -88,6 +127,10 @@ $menuHeight: 20px;
 .app {
   padding: 10px;
   margin: 20px;
+
+  // width: fit-content;
+
+  @include flex(column, center, center);
 
   &:active {
     background-color: rgb(159, 159, 159);
@@ -99,6 +142,9 @@ $menuHeight: 20px;
   &__title {
     background-color: white;
     text-align: center;
+    // width: fit-content;
+    margin-top: 2px;
+    padding: 1px 3px;
   }
   &--trash {
   }

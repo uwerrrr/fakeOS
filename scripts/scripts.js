@@ -1,3 +1,19 @@
+import * as dom from "./modules/dom-utils.js";
+
+dom.logAllEle(); // log all captured HTML elements
+
+//////////////////////////////////////
+/// Tests
+///
+const domElementLog = (element) => {
+  console.log(`${element.id}: `, element);
+};
+
+const clickedLog = (event) => {
+  const id = event.target.id; // get id of event being clicked
+  console.log(`${id} is clicked`);
+};
+
 /////////////////////////////////////////
 /* LIVE TIME */
 
@@ -25,4 +41,16 @@ function currentTime() {
 // Call the currentTime function every 1000 milliseconds (1 second)
 setInterval(currentTime, 1000);
 
+////////////////////////////////////////////
+/// mac menu
+///
+dom.appleLogo.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
 
+  dom.macMenu.classList.toggle("hidden-wrapper--show");
+});
+
+
+////////////////////////////////////////////
+/// Notes app
+///
