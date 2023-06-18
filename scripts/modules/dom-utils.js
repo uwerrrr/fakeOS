@@ -4,7 +4,7 @@ const eleArr = [];
 /// captured elements
 ///
 
-export const appleLogo = document.querySelector("#appleLogo");
+export const appleLogo = document.querySelector("#appleLogoDiv");
 eleArr.push(appleLogo);
 
 export const macMenu = document.querySelector("#macMenuWrapper");

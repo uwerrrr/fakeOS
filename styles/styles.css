@@ -50,6 +50,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  z-index: 10;
 }
 .mac-menu__item {
   margin: 2px;
@@ -61,14 +62,26 @@
   background-color: rgba(109, 109, 109, 0.383);
 }
 
-.content {
+.desktop-content {
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+.icons-wrapper__on-right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  height: calc(100% - 20px);
+  align-items: stretch;
 }
-
 .app {
   padding: 10px;
   margin: 20px;
@@ -88,6 +101,85 @@
   text-align: center;
   margin-top: 2px;
   padding: 1px 3px;
+}
+.apps-wrapper {
+  min-width: 716.8px;
+  position: absolute;
+  z-index: 1;
+}
+
+.window {
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: white;
+}
+.window__header {
+  border-bottom: 2px solid black;
+  background-color: rgba(109, 109, 109, 0.383);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.window__close-btn {
+  margin: 0 15px;
+  font-weight: 900;
+  background-color: white;
+  justify-self: flex-start;
+}
+.window__close-btn:active {
+  background-color: rgba(109, 109, 109, 0.383);
+  color: white;
+}
+.window__title {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.window__content {
+  margin: 20px;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.notes__saved-notes {
+  width: 30%;
+  border: 1px solid black;
+}
+.notes__inputs {
+  width: 70%;
+  border: 1px solid black;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.notes__input {
+  margin: 10px 0;
+}
+.notes__input--title {
+  width: 90%;
+}
+.notes__input--txtarea {
+  width: 90%;
+  height: 300px;
+  resize: none;
+}
+.notes__btns {
+  margin: 10px 0;
+}
+.notes__btn {
+  margin: 0 20px;
+  width: 100px;
+  font-weight: 900;
 }
 
 /*# sourceMappingURL=styles.css.map */

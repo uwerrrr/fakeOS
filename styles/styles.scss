@@ -16,10 +16,6 @@
   // }
 }
 
-@mixin window($radius: 4px) {
-  border-radius: $radius;
-}
-
 @mixin flex($direction: row, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
@@ -31,7 +27,7 @@
 .desktop {
   @include font();
 
-  @include window(16px);
+  border-radius: 16px;
 
   background-color: rgba(109, 109, 109, 0.383);
   width: 1024px;
@@ -86,8 +82,10 @@ $menuHeight: 20px;
   position: absolute;
   margin-left: 10px;
 
-  @include window();
+  border-radius: 4px;
   @include flex($direction: column);
+
+  z-index: 10;
 
   &__item {
     margin: 2px;
@@ -105,22 +103,27 @@ $menuHeight: 20px;
 ////////////////////////////////////////////
 /// content
 ///
-
-.content {
-  // @include flex($direction: column,$justify: space-between ,$align: flex-end);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-
+.desktop-content {
   height: calc(100% - $menuHeight);
+  @include flex($justify: center, $align: center);
 }
 
-.apps-wrapper {
-  // @include flex(column, center, center);
-  &--trash {
-    // margin-top: auto;
+////////////
+/// apps icons
+///
+.icons-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+
+  &__on-right {
+    @include flex($direction: column, $justify: space-between);
+  }
+  &__apps {
+  }
+
+  &__trash {
   }
 }
 
@@ -147,5 +150,104 @@ $menuHeight: 20px;
     padding: 1px 3px;
   }
   &--trash {
+  }
+}
+
+/////////////////////
+/// actual apps
+///
+@mixin appWindow() {
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: white;
+
+  // width: fit-content;
+  // min-width: 70%;
+  // max-width: 100%;
+
+  // z-index: 1;
+
+  // positioning window - to ask to fix
+  // position: fixed;
+}
+.apps-wrapper {
+  // min-width: 70% doesn't work ???
+  min-width: calc(0.7 * 1024px);
+
+  // using   position: absolute -> % doesn't work ???
+  position: absolute;
+  z-index: 1;
+}
+
+.window {
+  @include appWindow();
+
+  &__header {
+    border-bottom: 2px solid black;
+    background-color: theme.$wallpaper;
+
+    @include flex($justify: space-between, $align: center);
+  }
+
+  &__close-btn {
+    margin: 0 15px;
+    font-weight: 900;
+    background-color: white;
+    justify-self: flex-start;
+    &:active {
+      background-color: theme.$wallpaper;
+      color: white;
+    }
+  }
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    // flex-grow: 1;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  &__content {
+    margin: 20px;
+  }
+}
+
+.notes {
+  @include flex($justify: space-between);
+
+  &__saved-notes {
+    width: 30%;
+    border: 1px solid black;
+  }
+
+  &__inputs {
+    width: 70%;
+    border: 1px solid black;
+    padding: 5px;
+
+    @include flex($direction: column, $justify: space-around, $align: center);
+  }
+
+  &__input {
+    margin: 10px 0;
+    &--title {
+      width: 90%;
+    }
+    &--txtarea {
+      width: 90%;
+      height: 300px;
+      resize: none;
+    }
+  }
+  &__btns {
+    margin: 10px 0;
+  }
+  &__btn {
+    margin: 0 20px;
+    width: 100px;
+
+    font-weight: 900;
   }
 }

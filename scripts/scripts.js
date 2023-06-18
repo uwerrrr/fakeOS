@@ -50,7 +50,6 @@ dom.appleLogo.addEventListener("click", (event) => {
   dom.macMenu.classList.toggle("hidden-wrapper--show");
 });
 
-
 ////////////////////////////////////////////
 /// Notes app
 ///

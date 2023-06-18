@@ -19,8 +19,8 @@
       <!-- menu bar -->
       <div class="menu">
         <div class="menu__left">
-          <div class="menu__item menu__item--apple-logo">
-            <i class="fa-brands fa-apple" id="appleLogo"></i>
+          <div class="menu__item menu__item--apple-logo" id="appleLogoDiv">
+            <i class="fa-brands fa-apple" id="appleLogoIcon"></i>
           </div>
           <div class="menu__item">File</div>
           <div class="menu__item">Edit</div>
@@ -42,50 +42,113 @@
         </div>
       </div>
 
+      <!-- ======================================= -->
       <!-- content -->
-      <div class="content">
-        <!-- app icons -->
+      <div class="desktop-content">
+        <!-- ======== -->
+        <!-- apss -->
         <div class="apps-wrapper">
-          <!-- app 1 -->
-          <div class="app">
-            <img
-              src="../styles/icons/floppy-disk.png"
-              alt="Notes"
-              class="app__img"
-            />
-            <div class="app__title">Notes</div>
+          <!-- app Notes -->
+          <div class="window">
+            <div class="window__header">
+              <button class="window__close-btn">X</button>
+              <p class="window__title">Notes</p>
+            </div>
+
+            <div class="window__content notes">
+              <div class="notes__saved-notes">
+                <p>abc</p>
+                <hr />
+                <p>abc</p>
+              </div>
+
+              <form class="notes__inputs">
+                <label for="noteTitle">Title</label>
+                <input
+                  type="text"
+                  id="noteTitle"
+                  name="noteTitle"
+                  placeholder="Enter your title"
+                  required
+                  class="notes__input notes__input--title"
+                />
+
+                <label for="noteContent">Note</label>
+                <textarea
+                  id="noteContent"
+                  name="noteContent"
+                  class="notes__input notes__input--txtarea"
+                  placeholder="Enter your note"
+                  required
+                ></textarea>
+
+                <div class="notes__btns">
+                  <button type="submit" class="notes__btn" id="noteSave">
+                    SAVE
+                  </button>
+                  <button class="notes__btn" id="noteClear">CLEAR</button>
+                </div>
+              </form>
+            </div>
           </div>
 
-          <!-- app 2 -->
-          <div class="app">
-            <img
-              src="../styles/icons/floppy-disk.png"
-              alt="App 2"
-              class="app__img"
-            />
-            <div class="app__title">Media player</div>
-          </div>
+          <!-- ======== -->
+          <!-- app Player -->
+          <div class="window player hidden-wrapper">
+            <div class="window__header">
+              <button class="window__btn">X</button>
+            </div>
 
-          <!-- app 3 -->
-          <div class="app">
-            <img
-              src="../styles/icons/floppy-disk.png"
-              alt="App 3"
-              class="app__img"
-            />
-            <div class="app__title">Simple calculator</div>
+            <div class="window__content player">abc2</div>
           </div>
         </div>
 
-        <!-- trash icon -->
-        <div class="apps-wrapper apps-wrapper--trash">
-          <div class="app app--trash">
-            <img
-              src="../styles/icons/trash-can.png"
-              alt="trash bin"
-              class="app__img"
-            />
-            <div class="app__title">Trash</div>
+        <!-- icons -->
+        <div class="icons-wrapper">
+          <div class="icons-wrapper__on-right">
+            <!-- app icons -->
+            <div class="icons-wrapper__apps">
+              <!-- app 1 -->
+              <div class="app">
+                <img
+                  src="../styles/icons/floppy-disk.png"
+                  alt="Notes"
+                  class="app__img"
+                />
+                <div class="app__title">Notes</div>
+              </div>
+
+              <!-- app 2 -->
+              <div class="app">
+                <img
+                  src="../styles/icons/floppy-disk.png"
+                  alt="App 2"
+                  class="app__img"
+                />
+                <div class="app__title">Media player</div>
+              </div>
+
+              <!-- app 3 -->
+              <div class="app">
+                <img
+                  src="../styles/icons/floppy-disk.png"
+                  alt="App 3"
+                  class="app__img"
+                />
+                <div class="app__title">Simple calculator</div>
+              </div>
+            </div>
+            <!-- trash icon -->
+            <div class="icons-wrapper__trash">
+              <div class="app app--trash">
+                <img
+                  src="../styles/icons/trash-can.png"
+                  alt="trash bin"
+                  class="app__img"
+                />
+                <div class="app__title">Trash</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
