@@ -18,8 +18,8 @@ export const macMenu = addDOMid("macMenuWrapper");
 /// Notes
 
 export const notesIcon = addDOMid("notesIcon");
-// export const notesWindow = addDOMid("notesWindow");
-// export const notesCloseBtn = addDOMid("notesCloseBtn");
+export const notesWindow = addDOMid("notesWindow");
+export const notesCloseBtn = addDOMid("notesCloseBtn");
 
 /////////////
 /// player
@@ -31,8 +31,8 @@ export const playerCloseBtn = addDOMid("playerCloseBtn");
 /// Calendar
 
 export const calendarIcon = addDOMid("calendarIcon");
-// export const calendarWindow = addDOMid("calendarWindow");
-// export const calendarCloseBtn = addDOMid("calendarCloseBtn");
+export const calendarWindow = addDOMid("calendarWindow");
+export const calendarCloseBtn = addDOMid("calendarCloseBtn");
 
 ////////////////////////////////////
 /// log

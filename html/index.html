@@ -49,9 +49,9 @@
         <!-- apss -->
         <div class="apps-wrapper">
           <!-- app Notes -->
-          <div class="window hidden-wrapper">
+          <div class="window hidden-wrapper" id="notesWindow">
             <div class="window__header">
-              <button class="window__close-btn">X</button>
+              <button class="window__close-btn" id="notesCloseBtn">X</button>
               <p class="window__title">Notes</p>
             </div>
 
@@ -107,6 +107,17 @@
                 controls
               ></video>
             </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- app Calendar -->
+          <div class="window hidden-wrapper" id="calendarWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="calendarCloseBtn">X</button>
+              <p class="window__title">Simple calendar</p>
+            </div>
+
+            <div class="window__content calendar">abc</div>
           </div>
         </div>
 

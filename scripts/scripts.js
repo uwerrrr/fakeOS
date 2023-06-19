@@ -53,16 +53,39 @@ dom.appleLogo.addEventListener("click", (event) => {
 ////////////////////////////////////////////
 /// Notes app
 ///
+dom.notesIcon.addEventListener("dblclick", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.notesWindow.classList.add("hidden-wrapper--show");
+});
+dom.notesCloseBtn.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.notesWindow.classList.remove("hidden-wrapper--show");
+});
+
+
 
 ////////////////////////////////////////////
 /// Player app
 ///
 dom.playerIcon.addEventListener("dblclick", (event) => {
   clickedLog(event); // log what is clicked
-  dom.playerWindow.classList.toggle("hidden-wrapper--show");
+  dom.playerWindow.classList.add("hidden-wrapper--show");
 });
 
 dom.playerCloseBtn.addEventListener("click", (event) => {
   clickedLog(event); // log what is clicked
-  dom.playerWindow.classList.toggle("hidden-wrapper--show");
+  dom.playerWindow.classList.remove("hidden-wrapper--show");
+});
+
+////////////////////////////////////////////
+/// Calendar app
+///
+dom.calendarIcon.addEventListener("dblclick", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.calendarWindow.classList.add("hidden-wrapper--show");
+});
+
+dom.calendarCloseBtn.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.calendarWindow.classList.remove("hidden-wrapper--show");
 });
