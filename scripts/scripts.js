@@ -53,3 +53,16 @@ dom.appleLogo.addEventListener("click", (event) => {
 ////////////////////////////////////////////
 /// Notes app
 ///
+
+////////////////////////////////////////////
+/// Player app
+///
+dom.playerIcon.addEventListener("dblclick", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.playerWindow.classList.toggle("hidden-wrapper--show");
+});
+
+dom.playerCloseBtn.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.playerWindow.classList.toggle("hidden-wrapper--show");
+});

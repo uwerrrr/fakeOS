@@ -173,10 +173,10 @@ $menuHeight: 20px;
 .apps-wrapper {
   // min-width: 70% doesn't work ???
   min-width: calc(0.7 * 1024px);
-
+  max-width: calc(0.9 * 1024px);
   // using   position: absolute -> % doesn't work ???
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 
 .window {
@@ -249,5 +249,12 @@ $menuHeight: 20px;
     width: 100px;
 
     font-weight: 900;
+  }
+}
+
+.player {
+  &__video {
+    width: 100%;
+    filter: grayscale(100%);
   }
 }

@@ -49,7 +49,7 @@
         <!-- apss -->
         <div class="apps-wrapper">
           <!-- app Notes -->
-          <div class="window">
+          <div class="window hidden-wrapper">
             <div class="window__header">
               <button class="window__close-btn">X</button>
               <p class="window__title">Notes</p>
@@ -94,12 +94,19 @@
 
           <!-- ======== -->
           <!-- app Player -->
-          <div class="window player hidden-wrapper">
+          <div class="window hidden-wrapper" id="playerWindow">
             <div class="window__header">
-              <button class="window__btn">X</button>
+              <button class="window__close-btn" id="playerCloseBtn">X</button>
+              <p class="window__title">Bunny player</p>
             </div>
 
-            <div class="window__content player">abc2</div>
+            <div class="window__content player">
+              <video
+                class="player__video"
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                controls
+              ></video>
+            </div>
           </div>
         </div>
 
@@ -114,6 +121,7 @@
                   src="../styles/icons/floppy-disk.png"
                   alt="Notes"
                   class="app__img"
+                  id="notesIcon"
                 />
                 <div class="app__title">Notes</div>
               </div>
@@ -124,8 +132,9 @@
                   src="../styles/icons/floppy-disk.png"
                   alt="App 2"
                   class="app__img"
+                  id="playerIcon"
                 />
-                <div class="app__title">Media player</div>
+                <div class="app__title">Bunny player</div>
               </div>
 
               <!-- app 3 -->
@@ -134,8 +143,9 @@
                   src="../styles/icons/floppy-disk.png"
                   alt="App 3"
                   class="app__img"
+                  id="calendarIcon"
                 />
-                <div class="app__title">Simple calculator</div>
+                <div class="app__title">Simple calendar</div>
               </div>
             </div>
             <!-- trash icon -->
