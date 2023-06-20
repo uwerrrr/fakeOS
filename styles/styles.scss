@@ -247,7 +247,7 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
     width: 30%;
     border: 1px solid black;
 
-    max-height: 0.8 * $windowHContentMaxHeight ;
+    max-height: 0.8 * $windowHContentMaxHeight;
     overflow: auto;
   }
 
@@ -294,5 +294,13 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
   &__video {
     width: 100%;
     filter: grayscale(100%);
+  }
+}
+
+.trash {
+  @include flex($justify: center, $align: center);
+  height: $windowMinHeight;
+  &__content {
+    // text-align: center;
   }
 }

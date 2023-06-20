@@ -67,27 +67,39 @@ const hideAllWindows = () => {
 /// Notes app
 ///
 
+const savedNotesArr = [];
+
 ///////
 // open & close
 dom.notesIcon.addEventListener("dblclick", (event) => {
   clickedLog(event); // log what is clicked
   hideAllWindows();
   dom.notesWindow.classList.add("hidden-wrapper--show");
+  saveNotesClickListen();
 });
 dom.notesCloseBtn.addEventListener("click", (event) => {
   clickedLog(event); // log what is clicked
   dom.notesWindow.classList.remove("hidden-wrapper--show");
+
+  dom.notesForm.reset();
 });
 
 ///////
 // Notes processes
 
 // a function create text element -> add text to text element -> add CSS classes to text element -> add it to parent element
-const createTextEl = (elType, textVal, parent, classes = [], id = "") => {
+const createTextEl = (
+  elType,
+  textVal,
+  parent,
+  classes = [],
+  id = "",
+  name = ""
+) => {
   const newEl = document.createElement(elType); // create Element
   classes.forEach((c) => newEl.classList.add(c)); // add classes to Element
   id ? (newEl.id = id) : id; // add id when there's id
-
+  name ? newEl.setAttribute("name", name) : name; // add name when there's id
   const text = document.createTextNode(textVal); // convert textVal to text node
   newEl.appendChild(text); // add text node to Element
   parent.appendChild(newEl); // assign Element to parent
@@ -100,13 +112,40 @@ function SavedNoteObj(noteID, noteTitle, noteContent) {
   this.noteContent = noteContent;
 }
 
-const savedNotesArr = [];
-
 // function save new note
 const saveNewNote = (noteTitle, noteContent) => {
   const noteID = `savedNote${savedNotesArr.length}`;
   const noteObj = new SavedNoteObj(noteID, noteTitle, noteContent);
   savedNotesArr.push(noteObj);
+};
+
+// function add event listener click to each save note
+// savedNotes is a node list -> can use forEach()
+const saveNotesClickListen = () => {
+  dom.savedNotes.forEach((savedNote) => {
+    savedNote.addEventListener("click", (event) => {
+      clickedLog(event);
+
+      const noteIDToFind = event.target.id;
+      // console.log("event: ", event);
+
+      // find the note Obj in savedNotesArr that match the clicked noteID
+      const savedNoteFound = savedNotesArr.reduce((acc, savedNote) => {
+        if (savedNote.noteID === noteIDToFind) {
+          acc = { ...savedNote };
+        }
+        return acc;
+      }, {}); // return Obj
+
+      // console.log("savedNoteFound: ", savedNoteFound);
+
+      const { noteTitle, noteContent } = savedNoteFound;
+      // console.log("noteTitle: ", noteTitle);
+
+      dom.noteTitle.value = noteTitle;
+      dom.noteContent.value = noteContent;
+    });
+  });
 };
 
 // function display all saved notes
@@ -121,22 +160,30 @@ const displaySavedNotes = () => {
       noteTitle,
       dom.savedNotesDiv,
       ["notes__saved-note"],
-      noteID
+      noteID,
+      "savedNote"
     );
   });
-};
 
+  dom.updateSavedNotesEle(); // update saved note ele list when new notes are displayed
+};
 
 ///////// sample note
 saveNewNote(
   "Sample note",
-  "Hello world, this is a dummy note from Oscar! Welcome to my Macintosh web replica"
+  `Hello world, this is a dummy note from Oscar! Welcome to my Macintosh web replica. \n
+  You can create new note and retrieve saved note content. \n
+  Go on! Create as many notes as you want! \n
+  \n
+  Delete is out of scope... :)`
 );
 displaySavedNotes();
+saveNotesClickListen();
 
 console.log("savedNotesArr: ", savedNotesArr);
 console.log("savedNotesArr[0]: ", savedNotesArr[0]);
 console.log("savedNotesArr[0].noteTitle: ", savedNotesArr[0].noteTitle);
+
 ///////////////
 
 // Save btn clicked
@@ -162,7 +209,7 @@ dom.notesSave.addEventListener("click", (event) => {
   saveNewNote(noteTitle, noteContent);
 
   displaySavedNotes();
-
+  saveNotesClickListen();
   dom.notesForm.reset(); // clear inputs
 });
 
@@ -194,4 +241,19 @@ dom.calendarIcon.addEventListener("dblclick", (event) => {
 dom.calendarCloseBtn.addEventListener("click", (event) => {
   clickedLog(event); // log what is clicked
   dom.calendarWindow.classList.remove("hidden-wrapper--show");
+});
+
+
+///////////////////////
+/// Trash app
+///
+dom.trashIcon.addEventListener("dblclick", (event) => {
+  clickedLog(event); // log what is clicked
+  hideAllWindows();
+  dom.trashWindow.classList.add("hidden-wrapper--show");
+});
+
+dom.trashCloseBtn.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
+  dom.trashWindow.classList.remove("hidden-wrapper--show");
 });

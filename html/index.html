@@ -49,10 +49,7 @@
         <!-- apss -->
         <div class="apps-wrapper">
           <!-- app Notes -->
-          <div
-            class="window hidden-wrapper hidden-wrapper--show"
-            id="notesWindow"
-          >
+          <div class="window hidden-wrapper" id="notesWindow">
             <div class="window__header">
               <button class="window__close-btn" id="notesCloseBtn">X</button>
               <p class="window__title">Notes</p>
@@ -123,6 +120,21 @@
 
             <div class="window__content calendar">abc</div>
           </div>
+
+          <!-- ======== -->
+          <!-- app Trash -->
+          <div class="window hidden-wrapper" id="trashWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="trashCloseBtn">X</button>
+              <p class="window__title">Trash</p>
+            </div>
+
+            <div class="window__content trash">
+              <h2 class="trash__content">
+                What are you trying to find here ???
+              </h2>
+            </div>
+          </div>
         </div>
 
         <!-- icons -->
@@ -170,6 +182,7 @@
                   src="../styles/icons/trash-can.png"
                   alt="trash bin"
                   class="app__img"
+                  id="trashIcon"
                 />
                 <div class="app__title">Trash</div>
               </div>
