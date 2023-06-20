@@ -23,15 +23,16 @@
   justify-content: $justify;
   align-items: $align;
 }
-
+$desktopWidth: 1024px;
+$desktopHeight: 768px;
 .desktop {
   @include font();
 
   border-radius: 16px;
 
   background-color: rgba(109, 109, 109, 0.383);
-  width: 1024px;
-  height: 768px;
+  width: $desktopWidth;
+  height: $desktopHeight;
   margin: 50px auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -103,8 +104,9 @@ $menuHeight: 20px;
 ////////////////////////////////////////////
 /// content
 ///
+$desktopContentHeight: calc($desktopHeight - $menuHeight);
 .desktop-content {
-  height: calc(100% - $menuHeight);
+  height: $desktopContentHeight;
   @include flex($justify: center, $align: center);
 }
 
@@ -174,21 +176,39 @@ $menuHeight: 20px;
   // positioning window - to ask to fix
   // position: fixed;
 }
+
 .apps-wrapper {
   // min-width: 70% doesn't work ???
-  min-width: calc(0.7 * 1024px);
-  max-width: calc(0.9 * 1024px);
+  // min-width: calc(0.7 * $desktopWidth);
+  // max-width: calc(0.9 * $desktopWidth);
+  // min-height: calc(0.4 * $desktopContentHeight);
+  // max-height: calc(0.9 * $desktopContentHeight);
+
   // using   position: absolute -> % doesn't work ???
   position: absolute;
   z-index: 2;
 }
 
+// min-width: 70% doesn't work ???
+$windowMinWidth: calc(0.7 * $desktopWidth);
+$windowMaxWidth: calc(0.9 * $desktopWidth);
+$windowMinHeight: calc(0.4 * $desktopContentHeight);
+$windowMaxHeight: calc(0.9 * $desktopContentHeight);
+
+$windowHeaderMaxHeight: 30px;
+$windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
+
 .window {
   @include appWindow();
+  min-width: $windowMinWidth;
+  max-width: $windowMaxWidth;
+  min-height: $windowMinHeight;
+  max-height: $windowMaxHeight;
 
   &__header {
     border-bottom: 2px solid black;
     background-color: theme.$wallpaper;
+    max-height: $windowHeaderMaxHeight;
 
     @include flex($justify: space-between, $align: center);
   }
@@ -215,6 +235,8 @@ $menuHeight: 20px;
   }
   &__content {
     margin: 20px;
+
+    max-height: $windowHContentMaxHeight;
   }
 }
 
@@ -224,6 +246,18 @@ $menuHeight: 20px;
   &__saved-notes {
     width: 30%;
     border: 1px solid black;
+
+    max-height: 0.8 * $windowHContentMaxHeight ;
+    overflow: auto;
+  }
+
+  &__saved-note {
+    border: 1px solid black;
+    margin: 0;
+    padding: 10px 3px;
+    &:active {
+      background-color: theme.$wallpaper;
+    }
   }
 
   &__inputs {

@@ -7,12 +7,17 @@ const addDOMid = (id) => {
   return element;
 };
 
+const addDOMClass = (classCSS) => {
+  const element = document.querySelectorAll(`.${classCSS}`);
+  eleArr.push(element);
+  return element;
+};
+
 ////////////////////////////////////
 /// captured elements
 ///
 
-export const windows = document.querySelectorAll(".window");
-eleArr.push(windows);
+export const windows = addDOMClass("window");
 
 /////////////
 /// menu
@@ -25,12 +30,20 @@ export const macMenu = addDOMid("macMenuWrapper");
 export const notesIcon = addDOMid("notesIcon");
 export const notesWindow = addDOMid("notesWindow");
 export const notesCloseBtn = addDOMid("notesCloseBtn");
+export const notesForm = addDOMid("notesForm");
+export const noteTitle = addDOMid("noteTitle");
+export const noteContent = addDOMid("noteContent");
+
+export const notesSave = addDOMid("notesSave");
+export const notesClear = addDOMid("notesSave");
+export const savedNotesDiv = addDOMid("savedNotesDiv");
 
 /////////////
 /// Player
 export const playerIcon = addDOMid("playerIcon");
 export const playerWindow = addDOMid("playerWindow");
 export const playerCloseBtn = addDOMid("playerCloseBtn");
+export const playerVideo = addDOMid("playerVideo");
 
 /////////////
 /// Calendar

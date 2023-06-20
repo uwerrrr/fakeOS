@@ -63,7 +63,7 @@
 }
 
 .desktop-content {
-  height: calc(100% - 20px);
+  height: 748px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -112,8 +112,6 @@
   padding: 1px 3px;
 }
 .apps-wrapper {
-  min-width: 716.8px;
-  max-width: 921.6px;
   position: absolute;
   z-index: 2;
 }
@@ -122,10 +120,15 @@
   border: 2px solid black;
   border-radius: 4px;
   background-color: white;
+  min-width: 716.8px;
+  max-width: 921.6px;
+  min-height: 299.2px;
+  max-height: 673.2px;
 }
 .window__header {
   border-bottom: 2px solid black;
   background-color: rgba(109, 109, 109, 0.383);
+  max-height: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -151,6 +154,7 @@
 }
 .window__content {
   margin: 20px;
+  max-height: 643.2px;
 }
 
 .notes {
@@ -162,6 +166,16 @@
 .notes__saved-notes {
   width: 30%;
   border: 1px solid black;
+  max-height: 514.56px;
+  overflow: auto;
+}
+.notes__saved-note {
+  border: 1px solid black;
+  margin: 0;
+  padding: 10px 3px;
+}
+.notes__saved-note:active {
+  background-color: rgba(109, 109, 109, 0.383);
 }
 .notes__inputs {
   width: 70%;

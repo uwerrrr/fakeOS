@@ -60,11 +60,15 @@ const hideAllWindows = () => {
       window.classList.remove("hidden-wrapper--show");
     }
   }
+  dom.playerVideo.pause(); // pause bunny video when window hidden
 };
 
 ///////////////////////
 /// Notes app
 ///
+
+///////
+// open & close
 dom.notesIcon.addEventListener("dblclick", (event) => {
   clickedLog(event); // log what is clicked
   hideAllWindows();
@@ -73,6 +77,93 @@ dom.notesIcon.addEventListener("dblclick", (event) => {
 dom.notesCloseBtn.addEventListener("click", (event) => {
   clickedLog(event); // log what is clicked
   dom.notesWindow.classList.remove("hidden-wrapper--show");
+});
+
+///////
+// Notes processes
+
+// a function create text element -> add text to text element -> add CSS classes to text element -> add it to parent element
+const createTextEl = (elType, textVal, parent, classes = [], id = "") => {
+  const newEl = document.createElement(elType); // create Element
+  classes.forEach((c) => newEl.classList.add(c)); // add classes to Element
+  id ? (newEl.id = id) : id; // add id when there's id
+
+  const text = document.createTextNode(textVal); // convert textVal to text node
+  newEl.appendChild(text); // add text node to Element
+  parent.appendChild(newEl); // assign Element to parent
+};
+
+// predefined saved notes Arr of Obj
+function SavedNoteObj(noteID, noteTitle, noteContent) {
+  this.noteID = noteID;
+  this.noteTitle = noteTitle;
+  this.noteContent = noteContent;
+}
+
+const savedNotesArr = [];
+
+// function save new note
+const saveNewNote = (noteTitle, noteContent) => {
+  const noteID = `savedNote${savedNotesArr.length}`;
+  const noteObj = new SavedNoteObj(noteID, noteTitle, noteContent);
+  savedNotesArr.push(noteObj);
+};
+
+// function display all saved notes
+const displaySavedNotes = () => {
+  dom.savedNotesDiv.innerHTML = ""; // clear all displayed saved notes
+
+  // display all contents of savedNotesArr
+  savedNotesArr.forEach((savedNote, index) => {
+    const { noteID, noteTitle, noteContent } = savedNote;
+    createTextEl(
+      "h4",
+      noteTitle,
+      dom.savedNotesDiv,
+      ["notes__saved-note"],
+      noteID
+    );
+  });
+};
+
+
+///////// sample note
+saveNewNote(
+  "Sample note",
+  "Hello world, this is a dummy note from Oscar! Welcome to my Macintosh web replica"
+);
+displaySavedNotes();
+
+console.log("savedNotesArr: ", savedNotesArr);
+console.log("savedNotesArr[0]: ", savedNotesArr[0]);
+console.log("savedNotesArr[0].noteTitle: ", savedNotesArr[0].noteTitle);
+///////////////
+
+// Save btn clicked
+dom.notesSave.addEventListener("click", (event) => {
+  clickedLog(event); // log what is clicked
+
+  // empty entries -> report & exit
+  if (!dom.notesForm.checkValidity()) {
+    dom.notesForm.reportValidity();
+    return;
+  }
+
+  // prevent page from reload
+  event.preventDefault();
+
+  const notesFormData = new FormData(dom.notesForm, dom.notesSave); // get new data every click
+  const noteTitle = notesFormData.get("noteTitle"); // name of <input>
+  const noteContent = notesFormData.get("noteContent"); // name of <input>
+
+  console.log("noteTitle: ", noteTitle);
+  console.log("noteContent: ", noteContent);
+
+  saveNewNote(noteTitle, noteContent);
+
+  displaySavedNotes();
+
+  dom.notesForm.reset(); // clear inputs
 });
 
 ///////////////////////
@@ -86,6 +177,8 @@ dom.playerIcon.addEventListener("dblclick", (event) => {
 
 dom.playerCloseBtn.addEventListener("click", (event) => {
   clickedLog(event); // log what is clicked
+
+  dom.playerVideo.pause(); // pause video when close
   dom.playerWindow.classList.remove("hidden-wrapper--show");
 });
 

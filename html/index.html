@@ -49,20 +49,21 @@
         <!-- apss -->
         <div class="apps-wrapper">
           <!-- app Notes -->
-          <div class="window hidden-wrapper" id="notesWindow">
+          <div
+            class="window hidden-wrapper hidden-wrapper--show"
+            id="notesWindow"
+          >
             <div class="window__header">
               <button class="window__close-btn" id="notesCloseBtn">X</button>
               <p class="window__title">Notes</p>
             </div>
 
             <div class="window__content notes">
-              <div class="notes__saved-notes">
-                <p>abc</p>
-                <hr />
-                <p>abc</p>
+              <div class="notes__saved-notes" id="savedNotesDiv">
+                <!-- <h4 class="notes__saved-note" name="savedNote" id="savedNote0">Sample note</h4> -->
               </div>
 
-              <form class="notes__inputs">
+              <form class="notes__inputs" id="notesForm">
                 <label for="noteTitle">Title</label>
                 <input
                   type="text"
@@ -83,10 +84,12 @@
                 ></textarea>
 
                 <div class="notes__btns">
-                  <button type="submit" class="notes__btn" id="noteSave">
+                  <button type="submit" class="notes__btn" id="notesSave">
                     SAVE
                   </button>
-                  <button class="notes__btn" id="noteClear">CLEAR</button>
+                  <button type="reset" class="notes__btn" id="notesClear">
+                    CLEAR
+                  </button>
                 </div>
               </form>
             </div>
@@ -105,6 +108,7 @@
                 class="player__video"
                 src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                 controls
+                id="playerVideo"
               ></video>
             </div>
           </div>
@@ -158,8 +162,6 @@
                 />
                 <div class="app__title">Simple calendar</div>
               </div>
-
-              
             </div>
             <!-- trash icon -->
             <div class="icons-wrapper__trash">
