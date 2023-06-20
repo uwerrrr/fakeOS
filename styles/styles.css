@@ -81,6 +81,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  flex-wrap: wrap;
+  max-height: 100%;
+}
+.icons-wrapper__apps {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 .app {
   padding: 10px;

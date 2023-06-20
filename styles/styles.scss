@@ -119,8 +119,12 @@ $menuHeight: 20px;
 
   &__on-right {
     @include flex($direction: column, $justify: space-between);
+    flex-wrap: wrap;
+    max-height: 100%;
   }
   &__apps {
+    @include flex($direction: column);
+    flex-wrap: wrap;
   }
 
   &__trash {

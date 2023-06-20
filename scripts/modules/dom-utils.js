@@ -10,8 +10,13 @@ const addDOMid = (id) => {
 ////////////////////////////////////
 /// captured elements
 ///
-export const appleLogo = addDOMid("appleLogoDiv");
 
+export const windows = document.querySelectorAll(".window");
+eleArr.push(windows);
+
+/////////////
+/// menu
+export const appleLogo = addDOMid("appleLogoDiv");
 export const macMenu = addDOMid("macMenuWrapper");
 
 /////////////
@@ -22,7 +27,7 @@ export const notesWindow = addDOMid("notesWindow");
 export const notesCloseBtn = addDOMid("notesCloseBtn");
 
 /////////////
-/// player
+/// Player
 export const playerIcon = addDOMid("playerIcon");
 export const playerWindow = addDOMid("playerWindow");
 export const playerCloseBtn = addDOMid("playerCloseBtn");
@@ -38,9 +43,14 @@ export const calendarCloseBtn = addDOMid("calendarCloseBtn");
 /// log
 ///
 const domElementLog = (element) => {
-  console.log(`${element.id}: `, element);
+  if (element.id) {
+    console.log(`${element.id}: `, element);
+  } else {
+    console.log(element);
+  }
 };
 
 export const logAllEle = () => {
+  // console.log("eleArr: ", eleArr);
   eleArr.forEach((element) => domElementLog(element));
 };
