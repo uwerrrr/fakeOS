@@ -27,6 +27,8 @@ export const addDOM = (identifier) => {
 /// captured elements
 ///
 
+export const clock = addDOM({ id: "clock" });
+
 export const windows = addDOM({ classCSS: "window" });
 
 /////////////
@@ -69,6 +71,10 @@ export const playerVideo = addDOM({ id: "playerVideo" });
 export const calendarIcon = addDOM({ id: "calendarIcon" });
 export const calendarWindow = addDOM({ id: "calendarWindow" });
 export const calendarCloseBtn = addDOM({ id: "calendarCloseBtn" });
+export const calendarElement = addDOM({ id: "calendar-wrapper" });
+export const calendarNext = addDOM({ id: "calNext" });
+export const calendarPrev = addDOM({ id: "calPrev" });
+export const calendarToday = addDOM({ id: "calToday" });
 
 /////////////
 /// Trash
