@@ -133,7 +133,8 @@
 .window__header {
   border-bottom: 2px solid black;
   background-color: rgba(109, 109, 109, 0.383);
-  max-height: 30px;
+  max-height: 35px;
+  min-height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -144,13 +145,14 @@
   font-weight: 900;
   background-color: white;
   justify-self: flex-start;
+  border: 1px solid black;
 }
 .window__close-btn:active {
   background-color: rgba(109, 109, 109, 0.383);
   color: white;
 }
 .window__title {
-  padding: 1px 10px;
+  padding: 0px 5px;
   margin: 0;
   text-align: center;
   position: absolute;
@@ -160,7 +162,7 @@
 }
 .window__content {
   margin: 20px;
-  max-height: 643.2px;
+  max-height: 638.2px;
 }
 
 .notes {
@@ -169,11 +171,12 @@
   justify-content: space-between;
   align-items: stretch;
   width: 645.12px;
+  border-collapse: collapse;
 }
 .notes__saved-notes {
   width: 30%;
   border: 1px solid black;
-  max-height: 514.56px;
+  max-height: 510.56px;
   overflow: auto;
 }
 .notes__saved-note {

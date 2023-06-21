@@ -195,7 +195,7 @@ $windowMaxWidth: calc(0.9 * $desktopWidth);
 $windowMinHeight: calc(0.4 * $desktopContentHeight);
 $windowMaxHeight: calc(0.9 * $desktopContentHeight);
 
-$windowHeaderMaxHeight: 30px;
+$windowHeaderMaxHeight: 35px;
 $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
 
 .window {
@@ -209,6 +209,7 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
     border-bottom: 2px solid black;
     background-color: theme.$wallpaper;
     max-height: $windowHeaderMaxHeight;
+    min-height: auto;
 
     @include flex($justify: space-between, $align: center);
   }
@@ -218,6 +219,7 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
     font-weight: 900;
     background-color: white;
     justify-self: flex-start;
+    border: 1px solid black;
     &:active {
       background-color: theme.$wallpaper;
       color: white;
@@ -225,7 +227,7 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
   }
 
   &__title {
-    padding: 1px 10px;
+    padding: 0px 5px;
     margin: 0;
     // flex-grow: 1;
     text-align: center;
@@ -244,6 +246,7 @@ $windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
 .notes {
   @include flex($justify: space-between);
   width: calc(0.7 * $windowMaxWidth);
+  border-collapse: collapse;
   &__saved-notes {
     width: 30%;
     border: 1px solid black;
