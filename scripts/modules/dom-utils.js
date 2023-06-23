@@ -36,6 +36,9 @@ export const windows = addDOM({ classCSS: "window" });
 export const appleLogo = addDOM({ id: "appleLogoDiv" });
 export const macMenu = addDOM({ id: "macMenuWrapper" });
 
+export const menuAbout = addDOM({ id: "menuAbout" });
+export const aboutWindow = addDOM({ id: "aboutWindow" });
+export const aboutCloseBtn = addDOM({ id: "aboutCloseBtn" });
 /////////////
 /// Notes
 

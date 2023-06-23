@@ -36,7 +36,7 @@
       <!-- system menu -->
       <div class="hidden-wrapper" id="macMenuWrapper">
         <div class="mac-menu">
-          <a href="#" class="mac-menu__item">About This Mac</a>
+          <a href="#" class="mac-menu__item" id="menuAbout">About This Mac</a>
           <a href="#" class="mac-menu__item">System Settings...</a>
           <a href="#" class="mac-menu__item">Shutdown...</a>
         </div>
@@ -140,6 +140,26 @@
               <h2 class="trash__content">
                 What are you trying to find here ???
               </h2>
+            </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- About Me -->
+          <div class="window hidden-wrapper window hidden-wrapper--show" id="aboutWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="aboutCloseBtn">X</button>
+              <p class="window__title">About This Mac</p>
+            </div>
+
+            <div class="window__content about">
+              <div class="about__content">
+                <h2>#fakeOS Project</h2>
+                <p>
+                  An interactive fake retro Macintosh OS on web
+                  page.
+                </p>
+                <p>Made by Oscar NGUYEN.</p>
+              </div>
             </div>
           </div>
         </div>

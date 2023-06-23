@@ -42,6 +42,21 @@ dom.appleLogo.addEventListener("click", (event) => {
   dom.macMenu.classList.toggle("hidden-wrapper--show");
 });
 
+///////////////
+/// About This Mac
+dom.menuAbout.addEventListener("click", (event) => {
+  test.clickedLog(event); // log what is clicked
+
+  dom.aboutWindow.classList.add("hidden-wrapper--show");
+  dom.macMenu.classList.remove("hidden-wrapper--show");
+});
+
+dom.aboutCloseBtn.addEventListener("click", (event) => {
+  test.clickedLog(event); // log what is clicked
+
+  dom.aboutWindow.classList.remove("hidden-wrapper--show");
+});
+
 /////////////////////////////////////////////////////////
 /// Apps
 ///
@@ -61,12 +76,14 @@ const hideAllWindows = () => {
 
 const savedNotesArr = [];
 
-///////// sample note
+///////// Read Me note
 nf.saveNewNote(
-  "Sample note",
-  `Hello world, this is a dummy note from Oscar! Welcome to my Macintosh web replica. \n
+  "Read Me",
+  `Hello world, this is a dummy note from Oscar! \n
+  Welcome to my Macintosh web replica! \n
   You can create new note and retrieve saved note content. \n
   Go on! Create as many notes as you want! \n
+  \n
   \n
   Delete is out of scope... :)`,
   savedNotesArr
