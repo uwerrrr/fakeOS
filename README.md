@@ -1,4 +1,4 @@
 # fakeOS
 
-An interactive fake OS interface with on web page.
+An interactive fake retro Macintosh OS on web page.
 Made by Oscar NGUYEN.

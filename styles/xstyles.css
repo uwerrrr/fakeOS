@@ -1,0 +1,74 @@
+body {
+  background-color: #a3a3a3;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop {
+  background-color: #000;
+  width: 1024px;
+  height: 768px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.menu-bar {
+  background-color: #3f3f3f;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: #fff;
+}
+
+.apple-logo {
+  width: 26px;
+  height: 26px;
+  background-image: url(apple_logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu-items {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-item {
+  font-size: 14px;
+}
+
+.menu-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+}
+
+.desktop-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+.desktop-icon {
+  text-align: center;
+}
+
+.desktop-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+.icon-title {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #fff;
+}

@@ -1,0 +1,343 @@
+@use "./modules/theme.scss";
+
+// font
+@font-face {
+  font-family: "Sysfont";
+  src: url("./fonts/sysfont.woff2") format("woff2"),
+    url("./fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font() {
+  font-family: "Sysfont", Arial, sans-serif;
+  font-size: 16px;
+  // &--bold {
+  // }
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+
+  justify-content: $justify;
+  align-items: $align;
+}
+
+$desktopWidth: 1024px;
+$desktopHeight: 768px;
+.desktop {
+  @include font();
+
+  border-radius: 16px;
+
+  background-color: rgba(109, 109, 109, 0.383);
+  width: $desktopWidth;
+  height: $desktopHeight;
+  margin: 50px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.hidden-wrapper {
+  display: none;
+  &--show {
+    display: block;
+  }
+}
+
+//////////////////////////////////////////
+/// menu
+///
+
+$menuHeight: 20px;
+.menu {
+  background-color: white;
+  border-bottom: 2px solid black;
+
+  @include flex($justify: space-between);
+
+  padding: 0px 5px;
+
+  height: $menuHeight;
+  &__left {
+    @include flex();
+  }
+  &__item {
+    padding: 0px 10px;
+    &:active {
+      background-color: theme.$wallpaper;
+    }
+    &--apple-logo {
+      // &:active {
+      //   background-color: theme.$wallpaper;
+      // }
+    }
+  }
+  &__right {
+  }
+  &__clock {
+  }
+}
+
+.mac-menu {
+  background-color: white;
+  position: absolute;
+  margin-left: 10px;
+
+  border-radius: 4px;
+  @include flex($direction: column);
+
+  z-index: 10;
+
+  &__item {
+    margin: 2px;
+    padding: 4px;
+
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      background-color: theme.$wallpaper;
+    }
+  }
+}
+
+////////////////////////////////////////////
+/// content
+///
+$desktopContentHeight: calc($desktopHeight - $menuHeight);
+.desktop-content {
+  height: $desktopContentHeight;
+  @include flex($justify: center, $align: center);
+}
+
+////////////
+/// apps icons
+///
+.icons-wrapper {
+  @include flex($justify: flex-end);
+
+  height: 100%;
+  width: 100%;
+
+  &__on-right {
+    @include flex($direction: column, $justify: space-between);
+    flex-wrap: wrap;
+    max-height: 100%;
+  }
+  &__apps {
+    @include flex($direction: column);
+    flex-wrap: wrap;
+  }
+
+  &__trash {
+  }
+}
+
+.app {
+  padding: 10px;
+  margin: 20px;
+
+  // width: fit-content;
+
+  @include flex(column, center, center);
+
+  &:active {
+    background-color: rgb(159, 159, 159);
+  }
+
+  &__img {
+    height: 50px;
+  }
+  &__title {
+    background-color: white;
+    text-align: center;
+    // width: fit-content;
+    margin-top: 2px;
+    padding: 1px 3px;
+  }
+  &--trash {
+  }
+}
+
+/////////////////////
+/// actual apps
+///
+@mixin appWindow() {
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: white;
+}
+
+@mixin btn() {
+  margin: 0 10px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  font-weight: 900;
+  height: 30px;
+
+  &:active {
+    color: white;
+    background-color: theme.$wallpaper;
+  }
+}
+
+.apps-wrapper {
+  // using   position: absolute -> % doesn't work ???
+  position: absolute;
+  z-index: 2;
+}
+
+// min-width: 70% doesn't work ???
+$windowMinWidth: calc(0.5 * $desktopWidth);
+$windowMaxWidth: calc(0.9 * $desktopWidth);
+$windowMinHeight: calc(0.4 * $desktopContentHeight);
+$windowMaxHeight: calc(0.9 * $desktopContentHeight);
+
+$windowHeaderMaxHeight: 35px;
+$windowHContentMaxHeight: calc($windowMaxHeight - $windowHeaderMaxHeight);
+
+.window {
+  @include appWindow();
+  min-width: $windowMinWidth;
+  max-width: $windowMaxWidth;
+  min-height: $windowMinHeight;
+  max-height: $windowMaxHeight;
+
+  &__header {
+    border-bottom: 2px solid black;
+    background-color: theme.$wallpaper;
+    max-height: $windowHeaderMaxHeight;
+    min-height: auto;
+
+    @include flex($justify: space-between, $align: center);
+  }
+
+  &__close-btn {
+    margin: 0 15px;
+    font-weight: 900;
+    background-color: white;
+    justify-self: flex-start;
+    border: 1px solid black;
+    &:active {
+      background-color: theme.$wallpaper;
+      color: white;
+    }
+  }
+
+  &__title {
+    padding: 0px 5px;
+    margin: 0;
+    // flex-grow: 1;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: white;
+  }
+  &__content {
+    margin: 20px;
+
+    max-height: $windowHContentMaxHeight;
+  }
+}
+
+.notes {
+  @include flex($justify: space-between);
+  width: calc(0.7 * $windowMaxWidth);
+  border-collapse: collapse;
+  &__saved-notes {
+    width: 30%;
+    border: 1px solid black;
+
+    max-height: 0.8 * $windowHContentMaxHeight;
+    overflow: auto;
+  }
+
+  &__saved-note {
+    border: 1px solid black;
+    margin: 0;
+    padding: 10px 3px;
+    &:active {
+      background-color: theme.$wallpaper;
+    }
+  }
+
+  &__inputs {
+    width: 70%;
+    border: 1px solid black;
+    padding: 5px;
+
+    @include flex($direction: column, $justify: space-around, $align: center);
+  }
+
+  &__input {
+    margin: 10px 0;
+    &--title {
+      width: 90%;
+    }
+    &--txtarea {
+      width: 90%;
+      height: 300px;
+      resize: none;
+    }
+  }
+  &__btns {
+    margin: 10px 0;
+  }
+  &__btn {
+    // margin: 0 20px;
+    // width: 100px;
+
+    // font-weight: 900;
+    @include btn();
+  }
+}
+
+.player {
+  &__video {
+    width: 100%;
+    filter: grayscale(100%);
+    border: 2px solid black;
+  }
+}
+
+.calendar {
+  @include flex($direction: column, $justify: center, $align: center);
+
+  &__btns {
+    // @include flex($justify: space-between);
+  }
+  &__btn {
+    @include btn();
+  }
+  &__MMMYYYY {
+    text-align: center;
+  }
+  &__table {
+    border: 2px solid black;
+    border-collapse: collapse;
+
+    th {
+      background-color: theme.$wallpaper;
+      color: black;
+    }
+    th,
+    td {
+      padding: 8px;
+      font-size: larger;
+      // &:hover{
+      //   background-color: theme.$wallpaper;
+      // }
+    }
+  }
+}
+
+.trash {
+  @include flex($justify: center, $align: center);
+  height: $windowMinHeight;
+  &__content {
+    // text-align: center;
+  }
+}

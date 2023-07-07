@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Macintosh Desktop Replica</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/9a6d381eb2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <!-- menu bar -->
+      <div class="menu">
+        <div class="menu__left">
+          <div class="menu__item menu__item--apple-logo" id="appleLogoDiv">
+            <i class="fa-brands fa-apple" id="appleLogoIcon"></i>
+          </div>
+          <div class="menu__item">File</div>
+          <div class="menu__item">Edit</div>
+          <div class="menu__item">View</div>
+          <div class="menu__item">Help</div>
+        </div>
+
+        <div class="menu__right">
+          <div id="clock" class="menu__item menu__clock">Clock</div>
+        </div>
+      </div>
+
+      <!-- system menu -->
+      <div class="hidden-wrapper" id="macMenuWrapper">
+        <div class="mac-menu">
+          <a href="#" class="mac-menu__item" id="menuAbout">About This Mac</a>
+          <a href="#" class="mac-menu__item">System Settings...</a>
+          <a href="#" class="mac-menu__item">Shutdown...</a>
+        </div>
+      </div>
+
+      <!-- ======================================= -->
+      <!-- content -->
+      <div class="desktop-content">
+        <!-- ======== -->
+        <!-- apss -->
+        <div class="apps-wrapper">
+          <!-- app Notes -->
+          <div class="window hidden-wrapper" id="notesWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="notesCloseBtn">X</button>
+              <p class="window__title">Notes</p>
+            </div>
+
+            <div class="window__content notes">
+              <div class="notes__saved-notes" id="savedNotesDiv">
+                <!-- <h4 class="notes__saved-note" name="savedNote" id="savedNote0">Sample note</h4> -->
+              </div>
+
+              <form class="notes__inputs" id="notesForm">
+                <label for="noteTitle">Title</label>
+                <input
+                  type="text"
+                  id="noteTitle"
+                  name="noteTitle"
+                  placeholder="Enter your title"
+                  required
+                  class="notes__input notes__input--title"
+                />
+
+                <label for="noteContent">Note</label>
+                <textarea
+                  id="noteContent"
+                  name="noteContent"
+                  class="notes__input notes__input--txtarea"
+                  placeholder="Enter your note"
+                  required
+                ></textarea>
+
+                <div class="notes__btns">
+                  <button type="submit" class="notes__btn" id="notesSave">
+                    SAVE
+                  </button>
+                  <button type="reset" class="notes__btn" id="notesClear">
+                    CLEAR
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- app Player -->
+          <div class="window hidden-wrapper" id="playerWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="playerCloseBtn">X</button>
+              <p class="window__title">Bunny player</p>
+            </div>
+
+            <div class="window__content player">
+              <video
+                class="player__video"
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                controls
+                id="playerVideo"
+              ></video>
+            </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- app Calendar -->
+          <div class="window hidden-wrapper" id="calendarWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="calendarCloseBtn">X</button>
+              <p class="window__title">Simple calendar</p>
+            </div>
+
+            <div class="window__content calendar">
+              <div class="calendar__btns">
+                <button class="calendar__btn" id="calPrev">Previous</button>
+                <button class="calendar__btn" id="calToday">Today</button>
+                <button class="calendar__btn" id="calNext">Next</button>
+              </div>
+              <div id="calendar-wrapper"></div>
+            </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- app Trash -->
+          <div class="window hidden-wrapper" id="trashWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="trashCloseBtn">X</button>
+              <p class="window__title">Trash</p>
+            </div>
+
+            <div class="window__content trash">
+              <h2 class="trash__content">
+                What are you trying to find here ???
+              </h2>
+            </div>
+          </div>
+
+          <!-- ======== -->
+          <!-- About Me -->
+          <div class="window hidden-wrapper window hidden-wrapper--show" id="aboutWindow">
+            <div class="window__header">
+              <button class="window__close-btn" id="aboutCloseBtn">X</button>
+              <p class="window__title">About This Mac</p>
+            </div>
+
+            <div class="window__content about">
+              <div class="about__content">
+                <h2>#fakeOS Project</h2>
+                <p>
+                  An interactive fake retro Macintosh OS on web
+                  page.
+                </p>
+                <p>Made by Oscar NGUYEN.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- icons -->
+        <div class="icons-wrapper">
+          <div class="icons-wrapper__on-right">
+            <!-- app icons -->
+            <div class="icons-wrapper__apps">
+              <!-- app 1 -->
+              <div class="app">
+                <img
+                  src="./styles/icons/floppy-disk.png"
+                  alt="Notes"
+                  class="app__img"
+                  id="notesIcon"
+                />
+                <div class="app__title">Notes</div>
+              </div>
+
+              <!-- app 2 -->
+              <div class="app">
+                <img
+                  src="./styles/icons/floppy-disk.png"
+                  alt="App 2"
+                  class="app__img"
+                  id="playerIcon"
+                />
+                <div class="app__title">Bunny player</div>
+              </div>
+
+              <!-- app 3 -->
+              <div class="app">
+                <img
+                  src="./styles/icons/floppy-disk.png"
+                  alt="App 3"
+                  class="app__img"
+                  id="calendarIcon"
+                />
+                <div class="app__title">Simple calendar</div>
+              </div>
+            </div>
+            <!-- trash icon -->
+            <div class="icons-wrapper__trash">
+              <div class="app app--trash">
+                <img
+                  src="./styles/icons/trash-can.png"
+                  alt="trash bin"
+                  class="app__img"
+                  id="trashIcon"
+                />
+                <div class="app__title">Trash</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="./scripts/scripts.js" defer type="module"></script>
+  </body>
+</html>
