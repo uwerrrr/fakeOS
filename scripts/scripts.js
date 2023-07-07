@@ -10,7 +10,7 @@ dom.logAllEle(); // log all initially captured HTML elements
 /* LIVE TIME */
 
 // Function to get current time & display
-function currentTime() {
+const currentTime = () => {
   // Get the current date and time
   const now = new Date();
 
@@ -28,7 +28,7 @@ function currentTime() {
 
   // Update the text content of the element with the id "clock" to display the current time
   dom.clock.textContent = time;
-}
+};
 
 // Call the currentTime function every 1000 milliseconds (1 second)
 setInterval(currentTime, 1000);
@@ -46,15 +46,14 @@ dom.appleLogo.addEventListener("click", (event) => {
 /// About This Mac
 dom.menuAbout.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-
+  hideAllWindows();
   dom.aboutWindow.classList.add("hidden-wrapper--show");
   dom.macMenu.classList.remove("hidden-wrapper--show");
 });
 
 dom.aboutCloseBtn.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-
-  dom.aboutWindow.classList.remove("hidden-wrapper--show");
+  hideAllWindows();
 });
 
 /////////////////////////////////////////////////////////
@@ -101,7 +100,7 @@ dom.notesIcon.addEventListener("dblclick", (event) => {
 });
 dom.notesCloseBtn.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-  dom.notesWindow.classList.remove("hidden-wrapper--show");
+  hideAllWindows();
 
   dom.notesForm.reset();
 });
@@ -125,9 +124,6 @@ dom.notesSave.addEventListener("click", (event) => {
   const noteTitle = notesFormData.get("noteTitle"); // name of <input>
   const noteContent = notesFormData.get("noteContent"); // name of <input>
 
-  console.log("noteTitle saved: ", noteTitle);
-  console.log("noteContent saved: ", noteContent);
-
   nf.saveNewNote(noteTitle, noteContent, savedNotesArr);
 
   nf.displaySavedNotes(savedNotesArr);
@@ -147,9 +143,7 @@ dom.playerIcon.addEventListener("dblclick", (event) => {
 
 dom.playerCloseBtn.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-
-  dom.playerVideo.pause(); // pause video when close
-  dom.playerWindow.classList.remove("hidden-wrapper--show");
+  hideAllWindows();
 });
 
 ///////////////////////
@@ -167,6 +161,7 @@ const setToday = () => {
 setToday();
 cf.generateCalendar(currentMonth, currentYear, dom.calendarElement);
 
+// open
 dom.calendarIcon.addEventListener("dblclick", (event) => {
   test.clickedLog(event); // log what is clicked
   hideAllWindows();
@@ -176,11 +171,13 @@ dom.calendarIcon.addEventListener("dblclick", (event) => {
   cf.generateCalendar(currentMonth, currentYear, dom.calendarElement);
 });
 
+//close
 dom.calendarCloseBtn.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-  dom.calendarWindow.classList.remove("hidden-wrapper--show");
+  hideAllWindows();
 });
 
+// next btn
 dom.calendarNext.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
 
@@ -193,6 +190,7 @@ dom.calendarNext.addEventListener("click", (event) => {
   cf.generateCalendar(currentMonth, currentYear, dom.calendarElement);
 });
 
+// prev btn
 dom.calendarPrev.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
 
@@ -205,6 +203,7 @@ dom.calendarPrev.addEventListener("click", (event) => {
   cf.generateCalendar(currentMonth, currentYear, dom.calendarElement);
 });
 
+// today btn
 dom.calendarToday.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
 
@@ -223,5 +222,5 @@ dom.trashIcon.addEventListener("dblclick", (event) => {
 
 dom.trashCloseBtn.addEventListener("click", (event) => {
   test.clickedLog(event); // log what is clicked
-  dom.trashWindow.classList.remove("hidden-wrapper--show");
+  hideAllWindows();
 });

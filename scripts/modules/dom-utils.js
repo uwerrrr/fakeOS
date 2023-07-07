@@ -17,11 +17,6 @@ export const addDOM = (identifier) => {
   return element;
 };
 
-// const addDOMClass = (classCSS) => {
-//   const element = document.querySelectorAll(`.${classCSS}`);
-//   eleArr.push(element);
-//   return element;
-// };
 
 ////////////////////////////////////
 /// captured elements
@@ -87,7 +82,7 @@ export const trashWindow = addDOM({ id: "trashWindow" });
 export const trashCloseBtn = addDOM({ id: "trashCloseBtn" });
 
 ////////////////////////////////////
-/// log
+/// log doms function
 ///
 const domElementLog = (element) => {
   if (element.id) {
@@ -100,6 +95,5 @@ const domElementLog = (element) => {
 };
 
 export const logAllEle = () => {
-  // console.log("eleArr: ", eleArr);
   eleArr.forEach((element) => domElementLog(element));
 };

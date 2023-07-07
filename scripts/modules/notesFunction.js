@@ -29,7 +29,7 @@ export const saveNotesClickListen = (savedNotesArr) => {
       test.clickedLog(event);
 
       const noteIDToFind = event.target.id;
-      // console.log("event: ", event);
+
 
       // find the note Obj in savedNotesArr that match the clicked noteID
       const savedNoteFound = savedNotesArr.reduce((acc, savedNote) => {
@@ -39,10 +39,10 @@ export const saveNotesClickListen = (savedNotesArr) => {
         return acc;
       }, {}); // return Obj
 
-      // console.log("savedNoteFound: ", savedNoteFound);
+
 
       const { noteTitle, noteContent } = savedNoteFound;
-      // console.log("noteTitle: ", noteTitle);
+
 
       dom.noteTitle.value = noteTitle;
       dom.noteContent.value = noteContent;
