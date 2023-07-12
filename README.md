@@ -7,4 +7,4 @@ Made by Oscar NGUYEN.
 
 Tech Stacks: HTML, JavaScript, SCSS. 
 
-Deployed version can be found [here]([https://example.com](https://uwerrrr.github.io/fakeOS/)).
+Deployed version can be found [here](https://uwerrrr.github.io/fakeOS/).
